@@ -3,10 +3,9 @@ import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
 import '../style/auth.scss'
-import { Button } from '../components/Button'
+import { Button } from '../components/Button/index'
 import { useAuth } from '../hooks/useAuths'
-import { FormEvent } from 'react'
-import { useState } from 'react'
+import { FormEvent,useState  } from 'react'
 import { database } from '../services/firebase'
 
 

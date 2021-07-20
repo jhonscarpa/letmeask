@@ -1,12 +1,12 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import logoImg from '../assets/images/logo.svg'
-import { Button } from '../components/Button'
-import { RoomCode } from '../components/RoomCode'
+import { Button } from '../components/Button/index'
+import { RoomCode } from '../components/RoomCode/index'
 import '../style/room.scss'
 import { useAuth } from '../hooks/useAuths'
 import { database } from '../services/firebase'
-import { useEffect } from 'react'
+import { Question } from '../components/Question/index'
 
 type FirebaseQuestions = Record<string, {
   author:{
@@ -133,8 +133,18 @@ export function Room() {
           <Button type="submit"disabled={!user}>Enviar pergunta</Button>
         </div>
      </form>
-     
-     {JSON.stringify(questions)}
+     <div className="question-list">
+     {questions.map(questions => {
+       return (
+         <Question 
+         key={questions.id}
+         content={questions.content}
+         author={questions.author}
+         />
+         
+       )
+     })}
+     </div>
    </main>
  </div>
   )
